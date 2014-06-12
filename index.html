@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Facebook | Profile</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="img/eye.png">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.css" rel="stylesheet" media="screen" type="text/css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.css" type="text/css" media="screen">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="res/cust.min.js"></script>
+    <link href="res/cust.css" rel="stylesheet" media="screen">
+</head>
+
+<body>
+    <div class="container">
+        <h1>facebook</h1>
+        <h4> Profile Picture Viewer</h4>
+        <p>This webpage attempts to show you full-size profile pictures of "locked" profiles</p>
+        <button onclick="javascript:window.open('https://twitter.com/prakharprasad');" type="button" class="space btn btn-success enabled">@prakharprasad</button>
+        <br>
+        <div class="middle">
+            <input id="shit" type="text" placeholder="https://www.facebook.com/username" class="input-xlarge text-center shit-size" onfocus="javascript:erase(this);" onkeypress="javascript:check(event)" />
+            <br>
+            <br>
+            <button type="submit" onclick="javascript:process();" class="btn btn-primary btn-default space expand">View Image</button>
+        </div>
+        <div id="image"></div>
+    </div>
+</body>
+
+</html>

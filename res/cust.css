@@ -1,0 +1,27 @@
+body {
+            background: #3b5999;
+            text-align: center;
+            padding-bottom: 25px;
+        }
+        .space {
+	        margin-top:15px;
+			margin-bottom:10px;
+        }
+        .middle
+        {
+	        padding-top: 5%;
+        }
+        .expand 
+        {
+        	height: 40px;
+	        width: 250px;
+        }
+        .shit-size {
+	        width: 600px;
+	        height: 30px;
+        }
+        p,h4,h1{
+	        color:#ffffff;
+	        font-family:lucida grande;
+	        
+        }
