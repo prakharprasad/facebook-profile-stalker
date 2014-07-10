@@ -14,7 +14,7 @@
     <link href="res/cust.css" rel="stylesheet" media="screen">
 </head>
 
-<body>
+<body onload="javascipt:hasher();">
     <div class="container">
         <h1>facebook</h1>
         <h4> Profile Picture Viewer</h4>
@@ -25,7 +25,7 @@
             <input id="shit" type="text" placeholder="https://www.facebook.com/username" class="input-xlarge text-center shit-size" onfocus="javascript:erase(this);" onkeypress="javascript:check(event)" />
             <br>
             <br>
-            <button type="submit" onclick="javascript:process();" class="btn btn-primary btn-default space expand">View Image</button>
+            <button type="submit" onclick="javascript:process(document.getElementById('shit').value);" class="btn btn-primary btn-default space expand">View Image</button>
         </div>
         <div id="image"></div>
     </div>

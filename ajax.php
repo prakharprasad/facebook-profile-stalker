@@ -26,7 +26,7 @@ function main(){
 		if(!$url)  throw new StalkErr(ERR_UPSTREAM_NORESPONSE);
 		$image = file_get_contents(preg_replace("/[0-9]{3}x[0-9]{3}/i","720x720",$url));
 		if(!@getimagesizefromstring($image)) $image = file_get_contents($url); //fallback to Graph API maximum, when resizing fails
-		echo json_encode(array("title" => htmlspecialchars($id->name,ENT_QUOTES)." | ".ucfirst(htmlspecialchars($id->gender,ENT_QUOTES)),
+		echo json_encode(array("hash"=> htmlspecialchars($id->username,ENT_QUOTES),"title" => htmlspecialchars($id->name,ENT_QUOTES)." | ".ucfirst(htmlspecialchars($id->gender,ENT_QUOTES)),
 			 "data"=>"data:image/jpg;base64,".base64_encode($image)));
 	    }
 	catch(Exception $e)
