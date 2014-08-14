@@ -4,6 +4,7 @@ class StalkErr extends Exception {}
 define("ERR_URI", "Invalid URL or Profile: Are you sure it's a valid link: \n\nhttps://www.facebook.com/username\nhttp://m.facebook.com/profile.php?id=123");
 define("ERR_PAGE","The link you provided is of a page not a Facebook \"profile\"\n\nPlease try again with a valid profile");
 define("ERR_UPSTREAM_NORESPONSE","Upstream didn't respond, please refresh the page and try again!");
+define("ERR_BLACKLIST","Sorry, that's not possible at the moment!");
 header("Content-Type: application/json");
 header("X-FRAME-OPTIONS: SAMEORIGIN");
 function getId($id){
@@ -19,9 +20,11 @@ function getId($id){
 }
 function main(){
 	try {
+		$blacklist = array("prakharprasad"); //backlist usernames, CSV formatted
 		$id = @getId($_GET['id']);
 		if(intval($id->id) <= 0) throw new StalkErr(ERR_URI);
 		if($id->likes) throw new StalkErr(ERR_PAGE);
+		if(in_array($id->username,$blacklist)) throw new StalkErr(ERR_BLACKLIST);
 		$url = get_headers("http://graph.facebook.com/".$id->id."/picture?type=large",1)["Location"];
 		if(!$url)  throw new StalkErr(ERR_UPSTREAM_NORESPONSE);
 		$image = file_get_contents(preg_replace("/[0-9]{3}x[0-9]{3}/i","720x720",$url));
